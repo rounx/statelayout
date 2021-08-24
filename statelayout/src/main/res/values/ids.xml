@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="state_layout_loading_progress_bar" type="id" />
+    <item name="state_layout_info_image" type="id" />
+    <item name="state_layout_info_title" type="id" />
+    <item name="state_layout_info_message" type="id" />
+    <item name="state_layout_info_button" type="id" />
+
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="state_layout_text_color">#E0E0E0</color>
+    <color name="state_layout_error_color">#F48FB1</color>
+
+</resources>
