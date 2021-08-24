@@ -1,5 +1,4 @@
 [![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
-[![JitPack](https://jitpack.io/v/tcqq/StateLayout.svg)](https://jitpack.io/#tcqq/StateLayout)
 [![Licence](https://img.shields.io/badge/Licence-Apache2-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 # StateLayout
@@ -8,7 +7,7 @@ StateLayout can display different state layouts, Content, Loading, Info.
 
 # Usage
 ```
-<com.tcqq.statelayout.StateLayout
+<com.rounx.statelayout.StateLayout
     android:id="@+id/state_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -37,13 +36,12 @@ state_layout.apply {
 #### build.gradle
 ```
 repositories {
-    maven { url 'https://jitpack.io' }
+    mavenCentral()
 }
 ```
 ```
 dependencies {
-    // Using JitPack
-    implementation 'com.github.tcqq:statelayout:2.0.1'
+    implementation 'com.rounx.android:statelayout:1.0.0'
 }
 ```
 
