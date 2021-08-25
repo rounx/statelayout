@@ -54,7 +54,7 @@ dependencies {
 License
 -------
 
-Copyright 2020 Perry Lance
+Copyright 2020 Rounx
 
 Licensed to the Apache Software Foundation (ASF) under one or more contributor
 license agreements.  See the NOTICE file distributed with this work for
