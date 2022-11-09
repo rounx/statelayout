@@ -37,7 +37,7 @@ state_layout.apply {
 #### build.gradle
 ```
 repositories {
-    mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 ```
 ```
