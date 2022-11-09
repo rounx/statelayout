@@ -101,9 +101,13 @@ class StateLayout @JvmOverloads constructor(
         state_layout_info_wrapper.setBackgroundColor(wrapperColor)
     }
 
-    fun infoButtonText(buttonText: String, block: (() -> Unit)?) {
+    fun infoImageVisible(isVisible: Boolean) {
+        state_layout_info_view.isVisible = isVisible
+    }
+
+    fun infoButton(buttonText: String? = null, block: (() -> Unit)?) {
         state_layout_info_button.apply {
-            text = buttonText
+            buttonText?.let { text = it }
             setOnClickListener { block?.invoke() }
         }
     }

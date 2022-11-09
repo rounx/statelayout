@@ -41,7 +41,7 @@ repositories {
 ```
 ```
 dependencies {
-    implementation 'com.rounx.android:statelayout:1.0.0'
+    implementation 'com.github.rounx:statelayout:1.1.0'
 }
 ```
 
