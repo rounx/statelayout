@@ -2,6 +2,7 @@ package com.rounx.statelayout
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
@@ -141,6 +142,13 @@ class StateLayout @JvmOverloads constructor(
 
     private fun modifyAlpha(@ColorInt color: Int, @IntRange(from = 0, to = 255) alpha: Int): Int {
         return color and 0x00ffffff or (alpha shl 24)
+    }
+
+    @ColorInt
+    private fun Context.colorSecondary(): Int {
+        val value = TypedValue()
+        theme.resolveAttribute(R.attr.colorSecondary, value, true)
+        return value.data
     }
 }
 

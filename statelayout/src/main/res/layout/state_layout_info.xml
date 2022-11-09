@@ -23,7 +23,7 @@
             android:id="@+id/state_layout_info_wrapper"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#FCD0CF" />
+            android:background="@color/state_wrapper_color" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@id/state_layout_info_image"
@@ -31,7 +31,7 @@
             android:layout_height="66dp"
             android:layout_gravity="center"
             app:srcCompat="@drawable/ic_baseline_cloud_off_24"
-            app:tint="@color/state_layout_error_color" />
+            app:tint="?attr/colorSecondary" />
 
     </io.github.florent37.shapeofview.shapes.RoundRectView>
 

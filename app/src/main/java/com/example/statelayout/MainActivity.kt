@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
                     setState(State.INFO)
                     infoTitle("Failed to load")
                     infoMessage("Network connection failed, please try again later")
-                    infoImageVisible(false)
                     infoButton {
                         Toast.makeText(this@MainActivity, "Retry", Toast.LENGTH_SHORT).show()
                     }
