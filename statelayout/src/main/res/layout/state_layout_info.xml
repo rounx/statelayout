@@ -11,6 +11,7 @@
     tools:theme="@style/StateLayout.Theme">
 
     <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:id="@+id/state_layout_info_view"
         android:layout_width="120dp"
         android:layout_height="120dp"
         app:shape_roundRect_bottomLeftRadius="50dp"
