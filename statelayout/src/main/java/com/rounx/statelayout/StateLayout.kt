@@ -8,8 +8,13 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.annotation.*
 import androidx.annotation.IntRange
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import kotlinx.android.synthetic.main.state_layout_empty.view.state_layout_empty_button
+import kotlinx.android.synthetic.main.state_layout_empty.view.state_layout_empty_image
+import kotlinx.android.synthetic.main.state_layout_empty.view.state_layout_empty_message
+import kotlinx.android.synthetic.main.state_layout_empty.view.state_layout_empty_title
+import kotlinx.android.synthetic.main.state_layout_empty.view.state_layout_empty_view
+import kotlinx.android.synthetic.main.state_layout_empty.view.state_layout_empty_wrapper
 import kotlinx.android.synthetic.main.state_layout_info.view.*
 
 /**
@@ -31,6 +36,9 @@ class StateLayout @JvmOverloads constructor(
     @LayoutRes
     private var infoRes = -1
 
+    @LayoutRes
+    private var emptyRes = -1
+
     init {
         val a = context.obtainStyledAttributes(attrs, R.styleable.StateLayout)
 
@@ -47,6 +55,11 @@ class StateLayout @JvmOverloads constructor(
             a.getResourceId(
                 R.styleable.StateLayout_state_layout_info_layout,
                 R.layout.state_layout_info
+            )
+        emptyRes =
+            a.getResourceId(
+                R.styleable.StateLayout_state_layout_empty_layout,
+                R.layout.state_layout_empty
             )
 
         a.recycle()
@@ -71,6 +84,14 @@ class StateLayout @JvmOverloads constructor(
             setViewForState(State.INFO, infoRes)
         }
 
+        if (infoRes != -1) {
+            setViewForState(State.INFO, infoRes)
+        }
+
+        if (emptyRes != -1) {
+            setViewForState(State.EMPTY, emptyRes)
+        }
+
         setState(state)
     }
 
@@ -84,37 +105,53 @@ class StateLayout @JvmOverloads constructor(
         this.state = state
     }
 
-    fun infoTitle(title: String) {
-        state_layout_info_title.text = title
+    fun title(title: String) {
+        if (state == State.INFO) state_layout_info_title.text = title
+        if (state == State.EMPTY) state_layout_empty_title.text = title
     }
 
-    fun infoMessage(message: String) {
-        state_layout_info_message.text = message
+    fun message(message: String) {
+        if (state == State.INFO) state_layout_info_message.text = message
+        if (state == State.EMPTY) state_layout_empty_message.text = message
     }
 
-    fun infoImage(@DrawableRes imageRes: Int, @ColorRes colorRes: Int) {
-        val iconColor = ContextCompat.getColor(context, colorRes)
-        val wrapperColor = modifyAlpha(iconColor, 0.2F)
-
-        state_layout_info_image.setImageResource(imageRes)
-        state_layout_info_image.setColorFilter(iconColor)
-
-        state_layout_info_wrapper.setBackgroundColor(wrapperColor)
-    }
-
-    fun infoImageVisible(isVisible: Boolean) {
-        state_layout_info_view.isVisible = isVisible
-    }
-
-    fun infoButton(buttonText: String? = null, block: (() -> Unit)?) {
-        state_layout_info_button.apply {
-            buttonText?.let { text = it }
-            setOnClickListener { block?.invoke() }
+    fun image(@DrawableRes imageRes: Int, @ColorInt colorRes: Int = context.colorSecondary()) {
+        val wrapperColor = modifyAlpha(colorRes, 0.2F)
+        if (state == State.INFO) {
+            state_layout_info_image.setImageResource(imageRes)
+            state_layout_info_image.setColorFilter(colorRes)
+            state_layout_info_wrapper.setBackgroundColor(wrapperColor)
+        }
+        if (state == State.EMPTY) {
+            state_layout_empty_image.setImageResource(imageRes)
+            state_layout_empty_image.setColorFilter(colorRes)
+            state_layout_empty_wrapper.setBackgroundColor(wrapperColor)
         }
     }
 
-    fun infoButtonVisible(isVisible: Boolean) {
-        state_layout_info_button.isVisible = isVisible
+    fun imageVisible(isVisible: Boolean) {
+        if (state == State.INFO) state_layout_info_view.isVisible = isVisible
+        if (state == State.EMPTY) state_layout_empty_view.isVisible = isVisible
+    }
+
+    fun button(buttonText: String? = null, block: (() -> Unit)?) {
+        if (state == State.INFO) {
+            state_layout_info_button.apply {
+                buttonText?.let { text = it }
+                setOnClickListener { block?.invoke() }
+            }
+        }
+        if (state == State.EMPTY) {
+            state_layout_empty_button.apply {
+                buttonText?.let { text = it }
+                setOnClickListener { block?.invoke() }
+            }
+        }
+    }
+
+    fun buttonVisible(isVisible: Boolean) {
+        if (state == State.INFO) state_layout_info_button.isVisible = isVisible
+        if (state == State.EMPTY) state_layout_empty_button.isVisible = isVisible
     }
 
 
@@ -153,7 +190,7 @@ class StateLayout @JvmOverloads constructor(
 }
 
 enum class State {
-    CONTENT, LOADING, INFO
+    CONTENT, LOADING, INFO, EMPTY
 }
 
 

@@ -35,13 +35,14 @@ class MainActivity : AppCompatActivity() {
             R.id.action_info -> {
                 binding.stateLayout.apply {
                     setState(State.INFO)
-                    infoTitle("Failed to load")
-                    infoMessage("Network connection failed, please try again later")
-                    infoButton {
+                    title("Failed to load")
+                    message("Network connection failed, please try again later")
+                    button {
                         Toast.makeText(this@MainActivity, "Retry", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
+            R.id.action_empty -> binding.stateLayout.setState(State.EMPTY)
         }
         return super.onOptionsItemSelected(item)
     }

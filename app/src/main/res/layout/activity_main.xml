@@ -23,7 +23,8 @@
             android:id="@+id/state_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:state_layout_state="info">
+            app:state_layout_empty_layout="@layout/state_layout_empty"
+            app:state_layout_state="empty">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"

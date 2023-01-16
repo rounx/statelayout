@@ -47,6 +47,9 @@ dependencies {
     // Google
     implementation 'com.google.android.material:material:1.7.0'
 
+    // ShapeOfView - https://github.com/florent37/ShapeOfView
+    implementation 'io.github.florent37:shapeofview:1.4.7'
+
     // StateLayout
     implementation project(':statelayout')
 }

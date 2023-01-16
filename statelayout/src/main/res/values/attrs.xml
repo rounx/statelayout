@@ -6,10 +6,12 @@
             <enum name="content" value="0" />
             <enum name="loading" value="1" />
             <enum name="info" value="2" />
+            <enum name="empty" value="3" />
         </attr>
 
         <attr name="state_layout_loading_layout" format="reference" />
         <attr name="state_layout_info_layout" format="reference" />
+        <attr name="state_layout_empty_layout" format="reference" />
     </declare-styleable>
 
 </resources>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    tools:theme="@style/StateLayout.Theme">
+
+    <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:id="@+id/state_layout_empty_view"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:shape_roundRect_bottomLeftRadius="50dp"
+        app:shape_roundRect_bottomRightRadius="50dp"
+        app:shape_roundRect_topLeftRadius="50dp"
+        app:shape_roundRect_topRightRadius="50dp">
+
+        <View
+            android:id="@+id/state_layout_empty_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/state_wrapper_color" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/state_layout_empty_image"
+            android:layout_width="66dp"
+            android:layout_height="66dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_baseline_inbox_24"
+            app:tint="?attr/colorSecondary" />
+
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/state_layout_empty_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="No content yet"
+        android:textAppearance="?attr/textAppearanceHeadline5" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/state_layout_empty_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Content will be displayed on this page"
+        android:textAppearance="?attr/textAppearanceBody1"
+        android:textColor="@color/state_layout_text_color" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/state_layout_empty_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Refresh" />
+
+</LinearLayout>
