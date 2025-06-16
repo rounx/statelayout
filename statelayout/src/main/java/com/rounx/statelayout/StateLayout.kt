@@ -116,7 +116,7 @@ class StateLayout @JvmOverloads constructor(
     }
 
     fun image(@DrawableRes imageRes: Int, @ColorInt colorRes: Int = context.colorSecondary()) {
-        val wrapperColor = modifyAlpha(colorRes, 0.2F)
+        val wrapperColor = modifyAlpha(colorRes, 0.1F)
         if (state == State.INFO) {
             state_layout_info_image.setImageResource(imageRes)
             state_layout_info_image.setColorFilter(colorRes)
